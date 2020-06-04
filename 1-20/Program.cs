@@ -9,7 +9,7 @@ class Formula
         if (exit) { return; }
         Process();
         Output();
-        Console.ReadKey();
+        Console.ReadLine();
     }
     static void Input()
     {
@@ -43,23 +43,26 @@ class Formula
     {
         bool y;
         double h;
-        int i = 1;
+        int i = 0;
         do
         {
             y = false;
             Console.Write(str);
             y = Double.TryParse(Console.ReadLine(), out h);
-            if (i < 5)
+            if (!y)
             {
-                if (!y) { Console.WriteLine("Неправильный ввод"); }
-                i++;
-            }
-            else 
-            { 
-                Console.WriteLine("Неправильный ввод\nНажмите Enter, чтобы выйти...");
-                Console.ReadLine();
-                exit = true;
-                break;
+                if (i < 5)
+                {
+                    i++;
+                    if (!y) { Console.WriteLine("Неправильный ввод " + i); }
+                }
+                else
+                {
+                    Console.WriteLine("Неправильный ввод\nНажмите Enter, чтобы выйти...");
+                    Console.ReadLine();
+                    exit = true;
+                    break;
+                }
             }
         } while (!y);
         return h;
