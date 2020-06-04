@@ -33,8 +33,10 @@ class Formula
     }
     static void Output()
     {
+        Console.WriteLine("\nИсходные данные:\na={0}; b={1}; x={2}",a.ToString("0.0000"),
+            b.ToString("0.0000"), x.ToString("0.0000"));
         if (rasschet)
-            Console.WriteLine("y = {0}", y.ToString("0.0000"));
+            Console.WriteLine("\nРезультат: y = {0}", y.ToString("0.0000"));
         Console.WriteLine("\nНажмите Enter, чтоюы выйти...");
     }
     static double koeff(string str)
