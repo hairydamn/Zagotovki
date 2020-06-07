@@ -1,8 +1,9 @@
 ﻿using System;
-class MassivBezDll //без контроля переполнений и рассчета/сортировки
+public class MassivBezDll //без контроля переполнений и рассчета/сортировки
 {
     public static int n;
     public static long[] mass;
+    public static long sum;
     public static bool exit = false;
     static void Main()
     {
@@ -26,17 +27,18 @@ class MassivBezDll //без контроля переполнений и рас�
             mass[i - 1] = koeff("Введите A"+i+"= ");
         }   
     }
-    static void Process()
+    public static void Process()
     {
-
+        for (int i = 0; i < mass.Length; i++)
+        {
+            sum += mass[i];
+        }
     }
     static void OutPut()
     {
         Console.WriteLine();
-        foreach (long k in mass)
-        {
-            Console.Write(k+" ");
-        }
+        Console.WriteLine("Сумма равна: "+sum);
+        
     }
     static long koeff(string str)
     {
